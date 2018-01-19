@@ -8,7 +8,7 @@ pipelines:
     materials:
       git_material:
         branch: master
-        git: "git@leave-ec-backend.github.com:twlabs/leave-ecuador-backend.git"
+        git: "git@github.com:scrodrig/Mummifier.git"
     stages:
       - test:
           environment_variables:
