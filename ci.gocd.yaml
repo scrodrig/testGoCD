@@ -1,0 +1,25 @@
+environments:
+  Labs:
+    pipelines:
+      - leave-ecuador-backend
+pipelines:
+  leave-ecuador-backend:
+    group: labs-leave-ec
+    materials:
+      git_material:
+        branch: master
+        git: "git@leave-ec-backend.github.com:twlabs/leave-ecuador-backend.git"
+    stages:
+      - test:
+          environment_variables:
+            RAILS_ENV: ci
+            APP_ENV: test
+            APP_BACKEND: leave-ecuador-backend
+          jobs:
+            build:
+              tasks:
+                - exec:
+                    arguments:
+                      - "-c"
+                      - ./scripts/unit_test_ci.sh
+                    command: /bin/bash
