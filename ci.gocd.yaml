@@ -4,7 +4,7 @@ environments:
       - leave-ecuador-front
 pipelines:
   leave-ecuador-front:
-    group: algo-que-test
+    group: algo-que-testear
     materials:
       git_material:
         branch: master
