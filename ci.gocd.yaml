@@ -17,7 +17,5 @@ pipelines:
                 - exec:
                     arguments:
                       - "-c"
-                      - "ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-                      - "brew install node"
                       - "CI=true npm test"
                     command: /bin/bash
