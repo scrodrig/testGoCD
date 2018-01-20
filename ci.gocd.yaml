@@ -1,10 +1,10 @@
 environments:
   Labs:
     pipelines:
-      - leave-ecuador-backend
+      - leave-ecuador-front
 pipelines:
-  leave-ecuador-backend:
-    group: labs-leave-ec
+  leave-ecuador-front:
+    group: algo-que-test
     materials:
       git_material:
         branch: master
@@ -17,6 +17,5 @@ pipelines:
                 - exec:
                     arguments:
                       - "-c"
-                      - "npm install"
-                      - "CI=true npm test"
+                      - "npm install && CI=true npm test"
                     command: /bin/bash
