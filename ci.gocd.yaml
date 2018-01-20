@@ -18,5 +18,5 @@ pipelines:
                     arguments:
                       - "-c"
                       - "npm install"
-                      - "npm test -ci=true"
+                      - "CI=true npm test"
                     command: /bin/bash
