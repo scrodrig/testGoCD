@@ -8,18 +8,15 @@ pipelines:
     materials:
       git_material:
         branch: master
-        git: "git@github.com:scrodrig/Mummifier.git"
+        git: "https://github.com/scrodrig/test-react-gocd.git"
     stages:
       - test:
-          environment_variables:
-            RAILS_ENV: ci
-            APP_ENV: test
-            APP_BACKEND: leave-ecuador-backend
           jobs:
             build:
               tasks:
                 - exec:
                     arguments:
                       - "-c"
-                      - ./scripts/unit_test_ci.sh
+                      - "npm install"
+                      - "npm test -ci=true"
                     command: /bin/bash
