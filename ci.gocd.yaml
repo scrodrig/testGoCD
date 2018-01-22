@@ -12,14 +12,16 @@ pipelines:
     stages:
       - hawkeye:
           jobs:
-            build:
+            scan:
               tasks:
                 - exec:
-                  arguments:
-                    - "-c"
-                    - "docker run --rm -v $PWD:/target stono/hawkeye"
-                  command: /bin/bash
+                    arguments:
+                      - "-c"
+                      - "docker run --rm -v $PWD:/target stono/hawkeye"
+                    command: /bin/bash
       - test:
+          approval:
+            type: success
           jobs:
             build:
               tasks:
