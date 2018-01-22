@@ -4,12 +4,21 @@ environments:
       - leave-ecuador-front
 pipelines:
   leave-ecuador-front:
-    group: algo-que-testear
+    group: testear
     materials:
       git_material:
         branch: master
         git: "https://github.com/scrodrig/test-react-gocd.git"
     stages:
+      - hawkeye:
+          jobs:
+            build:
+              tasks:
+                - exec:
+                  arguments:
+                    - "-c"
+                    - "docker run --rm -v $PWD:/target stono/hawkeye"
+                  command: /bin/bash
       - test:
           jobs:
             build:
